@@ -1,0 +1,3 @@
+[submodule "spotify"]
+	path = spotify
+	url = git@ghe.spotify.net:jordalgo/dotfiles-spotify-config.git
