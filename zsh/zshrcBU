@@ -1,0 +1,94 @@
+# Path to your oh-my-zsh configuration.
+ZSH=$HOME/.oh-my-zsh
+ZSH_THEME="pure"
+DEFAULT_USER="jordalgo"
+
+# for teamcity pull request builds
+function spghehook {
+  curl --user $USER -X POST -d '{"name": "web","active": true,"events":["push","pull_request"],"config":{"url":"http://dev.jimw.cloud.spotify.net:5000/webhook","content_type":"json"}}' -H "Content-Type: application/json" https://ghe.spotify.net/api/v3/repos/$1/hooks
+}
+
+# General
+alias pmd="~/bin/pmd/bin/run.sh"
+alias c="clear"
+alias vim='/Applications/MacVim.app/Contents/MacOS/Vim'
+
+# Git
+alias gitsuir="git submodule update --init --recursive"
+alias gpsu='git push --set-upstream origin $(current_branch)'
+alias gacane="git add -A && git commit --amend --no-edit"
+
+# Spotify
+alias spm="npm -reg http://npm-registry.spotify.net -userconfig ~/.spmrc --always-auth=true"
+alias sudospm="sudo npm -reg http://npm-registry.spotify.net --always-auth=true --userconfig $HOME/.spmrc"
+alias sshplay="ssh -A play.jordalgo.cloud.spotify.net"
+alias cdsapps="cd ~/SpotifyDev/stitch-apps"
+alias cdsframes="cd ~/SpotifyDev/stitch-frameworks"
+alias spotify-local-dep=_spotify_local_dep
+alias spotify-cc=clear-spotify-cache
+alias spmrefresh="rm -rf node_modules/ && spm cache clean && spm install"
+
+# Android
+alias droid-blddiscover='./gradlew installDebug; adb shell am start -a android.intent.action.VIEW -d spotify:internal:discover com.spotify.mobile.android.ui.debug/com.spotify.mobile.android.ui.activity.MainActivity'
+alias droid-bldradio='./gradlew installDebug; adb shell am start -a android.intent.action.VIEW -d spotify:internal:radio com.spotify.mobile.android.ui.debug/com.spotify.mobile.android.ui.activity.MainActivity'
+alias driod-lint='./gradlew app:lint'
+alias droid-test='./gradlew test'
+alias droid-check='./gradlew app:lint test checkstyle robolectric:checkstyleTest'
+alias droid-push=_droid_push
+alias droid-test=_droid_test
+alias adb="~/Android/sdk/platform-tools/adb"
+
+# Android Variables
+ANDROID_HOME=/Users/jordalgo/Android/sdk
+ANDROID_NDK=/Users/jordalgo/Android/android-ndk-r9d
+ANDROID_SDK=/User/jordalgo/Android/sdk
+export ANDROID_HOME
+export ANDROID_NDK
+export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_11.jdk/Contents/Home
+export PATH="/Users/jordalgo/Android/sdk/platform-tools:$PATH"
+export PATH=/usr/local/bin:${PATH} # homebrew
+export VIRTUALENVWRAPPER_PYTHON=$(brew --prefix)/bin/python
+if [ -f $(brew --prefix)/bin/virtualenvwrapper_lazy.sh ]; then
+. $(brew --prefix)/bin/virtualenvwrapper_lazy.sh
+fi
+
+export PATH="/usr/local/mysql/bin:$PATH"
+# Example aliases
+# alias zshconfig="mate ~/.zshrc"
+# alias ohmyzsh="mate ~/.oh-my-zsh"
+
+# Set to this to use case-sensitive completion
+# CASE_SENSITIVE="true"
+
+# Uncomment this to disable bi-weekly auto-update checks
+# DISABLE_AUTO_UPDATE="true"
+
+# Uncomment to change how often before auto-updates occur? (in days)
+# export UPDATE_ZSH_DAYS=13
+
+# Uncomment following line if you want to disable colors in ls
+# DISABLE_LS_COLORS="true"
+
+# Uncomment following line if you want to disable autosetting terminal title.
+# DISABLE_AUTO_TITLE="true"
+
+# Uncomment following line if you want to disable command autocorrection
+# DISABLE_CORRECTION="true"
+
+# Uncomment following line if you want red dots to be displayed while waiting for completion
+# COMPLETION_WAITING_DOTS="true"
+
+# Uncomment following line if you want to disable marking untracked files under
+# VCS as dirty. This makes repository status check for large repositories much,
+# much faster.
+# DISABLE_UNTRACKED_FILES_DIRTY="true"
+
+# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
+# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
+# Example format: plugins=(rails git textmate ruby lighthouse)
+plugins=(git sublime spotify hosts)
+
+source $ZSH/oh-my-zsh.sh
+
+# Customize to your needs...
+export PATH=$PATH:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/munki:$HOME/bin

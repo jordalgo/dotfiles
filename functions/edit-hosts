@@ -1,0 +1,19 @@
+function change_hosts() {
+  if [ -z "$1" ]
+  then
+    echo "Usage:
+      `basename $0` <url>
+
+  eg: `basename $0`  www.thecollegecoop.com"
+    return;
+  fi
+
+  if [ "$2" = 'comment' ]
+    then
+      val='s/127.0.0.1 '$1'/#127.0.0.1 '$1'/g'
+  else
+      val='s/#127.0.0.1 '$1'/127.0.0.1 '$1'/g'
+  fi
+  echo $val
+  sudo perl -pi -w -e "$val" /private/etc/hosts
+}
