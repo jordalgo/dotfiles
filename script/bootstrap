@@ -115,7 +115,43 @@ install_dotfiles () {
   done
 }
 
+install_vundle () {
+  if [ ! -d $HOME/.dotfiles/vim/bundle/vundle ]; then
+    info 'Cloning Vundle'
+    echo ''
+    git clone git://github.com/gmarik/vundle.git vim/bundle/vundle
+  else
+    info 'Vundle Exists, Skipping the Git Clone'
+  fi
+}
+
+link_vim_folder () {
+  if [ ! -d $HOME/.vim ]; then
+    info 'Linking Vim folder'
+    ln -s $HOME/.dotfiles/vim $HOME/.vim
+  fi
+}
+
+download_vim_plugins () {
+  info 'Installing plugins'
+  info '-------------------------------------------------'
+  if test $(which mvim)
+  then
+    mvim -v +PluginInstall +qall
+  else
+    if test $(which vim)
+    then
+      vim +PluginInstall +qall
+    else
+      fail 'mvim or vim not found in path.'
+    fi
+  fi
+}
+
 install_dotfiles
+link_vim_folder
+install_vundle
+download_vim_plugins
 
 echo ''
 echo '  All installed!'

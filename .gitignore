@@ -1,0 +1,7 @@
+vim/bundle
+vim/sessions
+.DS_Store
+
+vim/.netrwhist
+vim/spell
+vim/vundle_plugins/custom
