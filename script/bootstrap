@@ -154,4 +154,4 @@ install_vundle
 download_vim_plugins
 
 echo ''
-echo '  All installed!'
+echo 'All installed!'
