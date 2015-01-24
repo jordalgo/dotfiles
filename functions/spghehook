@@ -1,0 +1,3 @@
+function spghehook {
+  curl --user $USER -X POST -d '{"name": "web","active": true,"events":["push","pull_request"],"config":{"url":"http://dev.jimw.cloud.spotify.net:5000/webhook","content_type":"json"}}' -H "Content-Type: application/json" https://ghe.spotify.net/api/v3/repos/$1/hooks
+}
