@@ -33,4 +33,5 @@ ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="pure"
 DEFAULT_USER="jordalgo"
 
+plugins=(git sublime spotify hosts)
 source $ZSH/oh-my-zsh.sh
