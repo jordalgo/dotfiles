@@ -118,23 +118,22 @@ install_dotfiles () {
 install_vundle () {
   if [ ! -d $HOME/.dotfiles/vim/bundle/vundle ]; then
     info 'Cloning Vundle'
-    echo ''
+    echo '\n'
     git clone git://github.com/gmarik/vundle.git vim/bundle/vundle
+    success 'Ok'
   else
-    info 'Vundle Exists, Skipping the Git Clone'
+    success 'Vundle Exists, Skipping the Git Clone'
   fi
 }
 
 link_vim_folder () {
   if [ ! -d $HOME/.vim ]; then
-    info 'Linking Vim folder'
     ln -s $HOME/.dotfiles/vim $HOME/.vim
+    success 'Linked Vim Folder'
   fi
 }
 
 download_vim_plugins () {
-  info 'Installing plugins'
-  info '-------------------------------------------------'
   if test $(which mvim)
   then
     mvim -v +PluginInstall +qall
@@ -146,12 +145,24 @@ download_vim_plugins () {
       fail 'mvim or vim not found in path.'
     fi
   fi
+  success 'Vim Plugins Installed.'
+}
+
+clone_omz () {
+  if [ ! -d $HOME/.oh-my-zsh ]; then
+    git clone git://github.com/robbyrussell/oh-my-zsh.git $HOME/.oh-my-zsh
+    chsh -s /bin/zsh
+    success 'Zsh set and oh-my-zsh installed.'
+  else
+    success 'Skipping Oh My Zsh clone.\n'
+  fi
 }
 
 install_dotfiles
 link_vim_folder
 install_vundle
 download_vim_plugins
+clone_omz
 
 echo ''
 echo 'All installed!'
