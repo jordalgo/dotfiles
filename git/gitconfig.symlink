@@ -7,6 +7,8 @@
 	autosetuprebase = always
 [init]
 	templatedir = ~/.git_template
+[diff]
+  tool = vimdiff
 [color]
         diff = auto
         status = auto
@@ -79,3 +81,8 @@
 	smudge = git-media-smudge %f
 [help]
 	autocorrect = 1
+[merge]
+	tool = vimdiff
+	conflictstyle = diff3
+[mergetool]
+	prompt = false
