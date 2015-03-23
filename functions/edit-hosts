@@ -2,9 +2,9 @@ function change_hosts() {
   if [ -z "$1" ]
   then
     echo "Usage:
-      `basename $0` <url>
+      `basename $0` <url> 
 
-  eg: `basename $0`  www.thecollegecoop.com"
+  eg: `basename $0`  www.thecollegecoop.com comment"
     return;
   fi
 
