@@ -6,6 +6,6 @@ Run this:
 ```sh
 git clone https://github.com/jordalgo/dotfiles.git ~/.dotfiles
 cd ~/.dotfiles
-script/bootstrap
+sh script/bootstrap
 ```
 

@@ -2,13 +2,8 @@
 #
 # bootstrap installs things.
 
-cd "$(dirname "$0")/.."
-DOTFILES_ROOT=$(pwd)
 
-set -e
-
-echo ''
-
+# Helper Functions
 info () {
   printf "  [ \033[00;34m..\033[0m ] $1"
 }
@@ -26,7 +21,6 @@ fail () {
   echo ''
   exit
 }
-
 
 link_file () {
   local src=$1 dst=$2
@@ -158,6 +152,14 @@ clone_omz () {
   fi
 }
 
+# Here we go!
+# navigates up one level to the dotfiles root
+cd "$(dirname "$0")/.."
+DOTFILES_ROOT=$(pwd)
+
+set -e
+
+echo ''
 install_dotfiles
 link_vim_folder
 install_vundle
