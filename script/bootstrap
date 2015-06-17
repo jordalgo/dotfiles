@@ -124,6 +124,8 @@ link_vim_folder () {
   if [ ! -d $HOME/.vim ]; then
     ln -s $HOME/.dotfiles/vim $HOME/.vim
     success 'Linked Vim Folder'
+  else
+    info 'Vim folder already exists'
   fi
 }
 
