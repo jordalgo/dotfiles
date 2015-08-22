@@ -9,7 +9,7 @@ let g:syntastic_loc_list_height = 5
 let g:syntastic_mode_map = { 'mode': 'active',
                            \ 'active_filetypes': [],
                            \ 'passive_filetypes': ['html', 'hbs', 'less', 'scss'] }
-let g:syntastic_javascript_checkers = ['jshint']
+let g:syntastic_javascript_checkers = ['eslint']
 
 " Hat tip http://git.io/SPIBfg
 let g:syntastic_error_symbol = '✗'
