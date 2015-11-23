@@ -120,9 +120,10 @@ set listchars+=precedes:<
 " ---------------
 " Sounds
 " ---------------
-set noerrorbells
-set novisualbell
+set errorbells
+set visualbell
 set t_vb=
+set visualbell t_vb=
 
 " ---------------
 " Mouse
