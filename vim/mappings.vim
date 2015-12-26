@@ -152,6 +152,8 @@ nnoremap <leader>jts <Esc>:%!underscore print --strict<CR><Esc>:set filetype=jso
 nnoremap <silent> <leader>hs :split<Bar>:wincmd j<CR>
 nnoremap <silent> <leader>vs :vsplit<Bar>:wincmd l<CR>
 
+nnoremap ø :CtrlP<CR>
+
 " Close the current window
 nnoremap <silent> <m-w> :close<CR>
 " ---------------
