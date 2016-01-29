@@ -5,8 +5,7 @@
 " ---------------
 " Color
 " ---------------
-set background=dark
-colorscheme jellybeans
+colorscheme fruit
 " Force 256 color mode if available
 if $TERM =~ "-256color"
    set t_Co=256
@@ -31,7 +30,7 @@ set ruler          " Ruler on
 set number         " Line numbers on
 set wrap         " Line wrapping off
 set laststatus=2   " Always show the statusline
-set cmdheight=2    " Make the command area two lines high
+set cmdheight=1    " Make the command area two lines high
 set encoding=utf-8
 set noshowmode     " Don't show the mode since Powerline shows it
 set title          " Set the title of the window in the terminal to the file
