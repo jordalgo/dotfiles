@@ -35,3 +35,6 @@ DEFAULT_USER="jordalgo"
 
 plugins=(git sublime spotify hosts)
 source $ZSH/oh-my-zsh.sh
+
+export NVM_DIR="/Users/jordalgo/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
