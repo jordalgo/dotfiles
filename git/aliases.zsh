@@ -1,3 +1,5 @@
+export EDITOR=/usr/local/Cellar/macvim/8.0-131/MacVim.app/Contents/MacOS/Vim
+
 alias gitsuir="git submodule update --init --recursive"
 alias gpsu='git push --set-upstream origin $(current_branch)'
 alias gacane="git add -A && git commit --amend --no-edit"

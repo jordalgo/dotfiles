@@ -33,3 +33,6 @@ setopt complete_aliases
 
 zle -N newtab
 
+# don't check for new mail
+MAILCHECK=0
+
