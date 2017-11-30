@@ -29,6 +29,8 @@ endif
 set ruler          " Ruler on
 set number         " Line numbers on
 set wrap         " Line wrapping off
+set linebreak
+set nolist
 set laststatus=2   " Always show the statusline
 set cmdheight=1    " Make the command area two lines high
 set encoding=utf-8

@@ -1,0 +1,4 @@
+function gupdate() {
+  git checkout master && git pull && git submodule update --init --recursive && git branch --merged master | grep -v '\* master' | xargs -n 1 git branch -d
+}
+
