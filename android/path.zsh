@@ -1,7 +1,8 @@
-ANDROID_HOME=/Users/jordalgo/Android/sdk
-ANDROID_NDK=/Users/jordalgo/Android/android-ndk-r10d
-export ANDROID_HOME
-export ANDROID_NDK
-export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_121.jdk/Contents/Home
-export PATH=$PATH:$ANDROID_HOME/tools
-export PATH=$PATH:$ANDROID_HOME/platform-tools
+export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_144.jdk/Contents/Home
+export PATH="${PATH}:/Library/Java/JavaVirtualMachines/jdk1.8.0_144.jdk/Contents/Home/bin"
+
+# BEGIN: Block added by chef, to set environment strings
+# Please see https://fburl.com/AndroidProvisioning if you do not use bash
+# or if you would rather this bit of code 'live' somewhere else
+. ~/.fbchef/environment
+# END: Block added by chef
